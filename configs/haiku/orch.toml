@@ -1,7 +1,6 @@
 max_steps = 200
-batch_size = 128
-micro_batch_size = 16
-seq_len = 8192
+batch_size = 8
+seq_len = 32768
 rollouts_per_example = 16
 mask_truncated_completions = false
 
