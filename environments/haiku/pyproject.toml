@@ -1,0 +1,14 @@
+[project]
+name = "haiku"
+version = "0.1.0"
+dependencies = [
+    "verifiers>=0.1.2",
+    "nltk>=3.8.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = ["haiku.py"]

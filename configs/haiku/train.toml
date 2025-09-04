@@ -1,0 +1,10 @@
+max_steps = 200
+
+[model]
+name = "Qwen/Qwen3-4B-Thinking-2507"
+
+[optim]
+lr = 1e-6
+
+[ckpt]
+interval = 25
