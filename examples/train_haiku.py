@@ -16,19 +16,17 @@ CUDA_VISIBLE_DEVICES=1 accelerate launch --num-processes 1 \
     --config-file configs/zero3.yaml examples/grpo/train_reverse_text.py
 """
 
-model_name = "Qwen/Qwen3-0.6B"
+model_name = "Qwen/Qwen3-4B-Thinking-2507"
 model, tokenizer = vf.get_model_and_tokenizer(model_name)
 
 vf_env = vf.load_environment(env_id="haiku")
 
 args = vf.grpo_defaults(run_name="haiku")
-args.per_device_train_batch_size = 12
-args.num_generations = 12
+args.per_device_train_batch_size = 16
+args.num_generations = 16
 args.gradient_accumulation_steps = 8
-args.max_steps = 100
-args.eval_strategy = "steps"
-args.eval_steps = 2
-args.max_tokens = 1024
+args.max_steps = 200
+args.max_tokens = 8192
 
 trainer = vf.GRPOTrainer(
     model=model,
