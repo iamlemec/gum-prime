@@ -12,9 +12,12 @@ name = "Qwen/Qwen3-4B-Thinking-2507"
 max_tokens = 8192
 
 [environment]
-id = "iamlemec/haiku"
+id = "haiku"
 
 [environment.args]
 use_thinking = true
 min_length = 2048
 max_length = 16384
+
+[ckpt]
+interval = 25
