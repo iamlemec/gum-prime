@@ -2,18 +2,16 @@ import verifiers as vf
 
 """
 # install
-vf-install reverse-text (-p /path/to/environments)
+vf-install haiku
 
 # quick eval
-vf-eval reverse-text (-m model_name in endpoints.py)
+vf-eval haiku (-m model_name in endpoints.py)
 
 inference:
-CUDA_VISIBLE_DEVICES=0 vf-vllm --model willcb/Qwen2.5-0.5B-Reverse-SFT \
-    --enforce-eager --disable-log-requests
+CUDA_VISIBLE_DEVICES=0 vf-vllm --model Qwen/Qwen3-4B-Thinking-2507 --enforce-eager --disable-log-requests --max-model-len 8192
 
 training:
-CUDA_VISIBLE_DEVICES=1 accelerate launch --num-processes 1 \
-    --config-file configs/zero3.yaml examples/grpo/train_reverse_text.py
+CUDA_VISIBLE_DEVICES=1 accelerate launch --num-processes 1 --config-file configs/zero3.yaml examples/train_haiku.py
 """
 
 model_name = "Qwen/Qwen3-4B-Thinking-2507"
