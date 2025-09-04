@@ -1,23 +1,23 @@
 max_steps = 200
 batch_size = 8
 micro_batch_size = 1
-seq_len = 8192
+seq_len = 1024
 rollouts_per_example = 8
 mask_truncated_completions = false
 
 [model]
-name = "Qwen/Qwen3-4B-Thinking-2507"
+name = "Qwen/Qwen2.5-1.5B-Instruct"
 
 [sampling]
-max_tokens = 4096
+max_tokens = 512
 
 [environment]
 id = "haiku"
 
 [environment.args]
 use_thinking = true
-min_length = 2048
-max_length = 16384
+min_length = 256
+max_length = 512
 
 [ckpt]
 interval = 25
